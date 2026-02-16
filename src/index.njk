@@ -1,0 +1,169 @@
+---
+layout: base.njk
+title: undefined.enterprises
+---
+
+<div class="min-h-screen bg-white">
+  {# Header with Logo #}
+  <header class="px-4 sm:px-8 pt-4 mx-auto max-w-xl">
+    <div class="flex justify-start">
+      <a href="/" class="inline-block group">
+        <div class="flex items-center gap-2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-800">
+            <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M9 12L12 15L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0" class="group-hover:opacity-100 transition-opacity"/>
+          </svg>
+          <span class="font-serif text-base text-neutral-800 tracking-tight">undefined.enterprises</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  {# Hero Section #}
+  <section class="px-4 sm:px-8 pt-8 sm:pt-12 pb-8 sm:pb-12 mx-auto max-w-xl">
+    <h1 class="font-serif text-2xl tracking-tight leading-[1.2] text-neutral-800 pb-4">
+      A New Kind of Studio
+    </h1>
+
+    <div class="flex flex-col gap-4 text-base text-neutral-800 leading-normal">
+      <p>
+        The models have collapsed the cost of creation to near-zero. What used to take months now takes hours. What once required teams can be done solo.
+      </p>
+
+      <p>
+        The bottleneck isn't building anymore—it's <strong class="font-medium">distribution</strong>. Finding the people who need what you've made. Cutting through the noise in a world where everyone can ship.
+      </p>
+
+      <p class="text-neutral-600">
+        <span class="font-serif text-lg font-normal text-neutral-800">undefined.enterprises</span> is a studio exploring this reality. We ship fast, iterate faster, and focus relentlessly on reaching the right people.
+      </p>
+    </div>
+  </section>
+
+  {# Approach Section #}
+  <section class="px-4 sm:px-8 pt-8 sm:pt-12 pb-8 sm:pb-12 mx-auto max-w-xl border-t border-neutral-200">
+    <h2 class="font-serif text-lg text-neutral-800 leading-normal pb-4">Approach</h2>
+
+    <div class="flex flex-col gap-4 text-sm text-neutral-600 leading-normal">
+      <div>
+        <p class="font-medium text-neutral-800">Ship in days, not months.</p>
+        <p>When building costs nothing, speed is the only advantage. First version ships within a week. Second version ships within days.</p>
+      </div>
+
+      <div>
+        <p class="font-medium text-neutral-800">Distribution before perfection.</p>
+        <p>A launched product with ten users beats a perfect product with zero users. Growth happens through iteration, not planning.</p>
+      </div>
+
+      <div>
+        <p class="font-medium text-neutral-800">Revenue or learning.</p>
+        <p>Every project either generates revenue or teaches something valuable. No vanity metrics, no engagement theater.</p>
+      </div>
+
+      <div>
+        <p class="font-medium text-neutral-800">Kill fast.</p>
+        <p>Graveyard projects aren't failures—they're timing misses or market misreads. Move on within weeks, not months.</p>
+      </div>
+    </div>
+  </section>
+
+  {# Velocity Section #}
+  <section class="px-4 sm:px-8 pt-8 sm:pt-12 pb-8 sm:pb-12 mx-auto max-w-xl border-t border-neutral-200">
+    <h2 class="font-serif text-lg text-neutral-800 leading-normal pb-4">Velocity</h2>
+
+    <div class="grid grid-cols-2 gap-6">
+      <div>
+        <div class="font-serif text-2xl text-neutral-800 leading-tight">7</div>
+        <div class="text-sm text-neutral-600 pt-1">Active projects</div>
+      </div>
+
+      <div>
+        <div class="font-serif text-2xl text-neutral-800 leading-tight">18</div>
+        <div class="text-sm text-neutral-600 pt-1">Months shipping</div>
+      </div>
+
+      <div>
+        <div class="font-serif text-2xl text-neutral-800 leading-tight">25k+</div>
+        <div class="text-sm text-neutral-600 pt-1">Users reached</div>
+      </div>
+
+      <div>
+        <div class="font-serif text-2xl text-neutral-800 leading-tight">2</div>
+        <div class="text-sm text-neutral-600 pt-1">Revenue positive</div>
+      </div>
+    </div>
+  </section>
+
+  {# Portfolio Section #}
+  <section class="px-4 sm:px-8 pt-8 sm:pt-16 pb-12 sm:pb-24 mx-auto max-w-xl border-t border-neutral-200">
+    <div class="pb-6 sm:pb-8">
+      <h2 class="font-serif text-lg text-neutral-800 leading-normal">Portfolio</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {% for project in projects %}
+      <article class="flex flex-col border border-neutral-200 rounded-lg overflow-hidden bg-white hover:border-neutral-400 transition-colors">
+        {# Project Image #}
+        {% if project.ogImage %}
+        <div class="aspect-[1.91/1] bg-neutral-100 overflow-hidden">
+          <img
+            src="{{ project.ogImage }}"
+            alt="{{ project.name }}"
+            class="w-full h-full object-cover grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+            loading="lazy"
+            onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center text-neutral-300\'><svg class=\'w-12 h-12\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z\'/></svg></div>'"
+          >
+        </div>
+        {% endif %}
+
+        {# Project Details #}
+        <div class="p-4 flex flex-col gap-2 flex-1">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-medium text-base text-neutral-800">
+              <a
+                href="{{ project.url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-blue-500 transition-colors underline decoration-transparent hover:decoration-current"
+              >
+                {{ project.name }}
+              </a>
+            </h3>
+            <span class="px-2 py-1 text-xs font-medium rounded-md whitespace-nowrap flex-shrink-0
+              {% if project.status == 'launched' %}bg-green-100 text-green-800
+              {% elif project.status == 'pre-launch' %}bg-yellow-100 text-yellow-800
+              {% else %}bg-neutral-100 text-neutral-600{% endif %}">
+              {{ project.status }}
+            </span>
+          </div>
+
+          <p class="text-xs text-neutral-500">{{ project.date | formatDate }}</p>
+
+          <p class="text-sm text-neutral-600 leading-normal flex-1">{{ project.blurb }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  {# Contact Section #}
+  <section class="px-4 sm:px-8 pt-8 sm:pt-12 pb-8 sm:pb-12 mx-auto max-w-xl border-t border-neutral-200">
+    <h2 class="font-serif text-lg text-neutral-800 leading-normal pb-4">Contact</h2>
+
+    <div class="text-sm text-neutral-600 leading-normal">
+      <p class="pb-2">Building something or want to discuss a project?</p>
+      <a href="mailto:alen@undefined.enterprises" class="text-blue-500 hover:text-blue-700 transition-colors underline">
+        alen@undefined.enterprises
+      </a>
+    </div>
+  </section>
+
+  {# Footer #}
+  <footer class="px-4 sm:px-8 py-8 bg-neutral-100 border-t border-neutral-200">
+    <div class="mx-auto max-w-xl flex items-center gap-3 flex-wrap text-xs text-neutral-600">
+      <div>&copy; 2026 undefined.enterprises</div>
+      <div>&middot;</div>
+      <a href="https://alen.ro" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 transition-colors">alen.ro</a>
+    </div>
+  </footer>
+</div>
