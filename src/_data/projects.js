@@ -54,5 +54,13 @@ export default [
     blurb: "CLI tool and registry for discovering Claude skills. Launched same day Vercel shipped native skills support. Timing problem.",
     url: "https://findskill.md/",
     ogImage: "https://findskill.md/og-image.png"
+  },
+  {
+    name: "StationWatch",
+    date: "2025-07-01",
+    status: "graveyard",
+    blurb: "UK fuel price tracker using government data. Launched 12 hours after competitor already dominated category. Timing problem.",
+    url: "https://stationwatch.co.uk",
+    ogImage: "https://stationwatch.co.uk/og-image.png"
   }
 ];
