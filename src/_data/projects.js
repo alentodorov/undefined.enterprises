@@ -6,16 +6,14 @@ export default [
     blurb:
       "WooCommerce analytics plugin. Store owners query their data in natural language instead of building dashboard reports.",
     url: "https://askanalytics.io",
-    ogImage: "https://askanalytics.io/og-image.png",
   },
   {
     name: "Clear for Slack",
     date: "2026-01-01",
     status: "launched",
     blurb:
-      "Slack extension that refines messages before sending. Editing happens in-context rather than copying to external tools.",
+      "Slack extension that refines messages before sending, ranked #2 Product of the Day and now in beta with 90 companies.",
     url: "https://www.installclear.com/",
-    ogImage: "https://www.installclear.com/og-image.png",
   },
   {
     name: "Ajunge",
@@ -24,16 +22,14 @@ export default [
     blurb:
       "Energy comparison for Romanian consumers. Upload a bill photo instead of filling multi-page forms to compare 40+ suppliers.",
     url: "https://www.ajunge.ro/",
-    ogImage: "https://www.ajunge.ro/og-image.png",
   },
   {
     name: "WalletWallet",
     date: "2025-12-01",
     status: "launched",
     blurb:
-      "Converts any card or membership into Apple Wallet passes. Users create passes directly rather than waiting for issuer support.",
+      "API service for creating Apple Wallet passes, with traffic coming almost entirely from developers who discover it through ChatGPT or Perplexity.",
     url: "https://walletwallet.dev/",
-    ogImage: "https://walletwallet.dev/og.png",
   },
   {
     name: "Papertrail",
@@ -42,7 +38,6 @@ export default [
     blurb:
       "Company data sourced from GDPR requests and public EU filings. Verified information rather than self-reported CRM data.",
     url: "https://viapapertrail.com/",
-    ogImage: "https://viapapertrail.com/og-image.png",
   },
   {
     name: "ClickRemix",
@@ -51,24 +46,21 @@ export default [
     blurb:
       "Browser extension for editing page designs with text prompts. Changes CSS and JS live without opening developer tools.",
     url: "https://clickremix.com",
-    ogImage: "https://clickremix.com/og-image.png",
   },
   {
     name: "findskill.md",
-    date: "2025-08-01",
+    date: "2026-01-01",
     status: "graveyard",
     blurb:
       "CLI tool and registry for discovering Claude skills. Launched same day Vercel shipped native skills support. Timing problem.",
     url: "https://findskill.md/",
-    ogImage: "https://findskill.md/og-image.png",
   },
   {
     name: "StationWatch",
-    date: "2025-07-01",
+    date: "2026-02-01",
     status: "graveyard",
     blurb:
       "UK fuel price tracker using government data. Launched 12 hours after competitor already dominated category. Timing problem.",
     url: "https://stationwatch.co.uk",
-    ogImage: "https://stationwatch.co.uk/og-image.png",
   },
 ];

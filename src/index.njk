@@ -88,20 +88,7 @@ title: undefined.enterprises
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {% for project in projects %}
-      <article class="flex flex-col border border-neutral-200 rounded-lg overflow-hidden bg-white hover:border-neutral-400 transition-colors">
-        {# Project Image #}
-        {% if project.ogImage %}
-        <div class="aspect-[1.91/1] bg-neutral-100 overflow-hidden">
-          <img
-            src="{{ project.ogImage }}"
-            alt="{{ project.name }}"
-            class="w-full h-full object-cover grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
-            loading="lazy"
-            onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center text-neutral-300\'><svg class=\'w-12 h-12\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z\'/></svg></div>'"
-          >
-        </div>
-        {% endif %}
-
+      <article class="flex flex-col border border-neutral-200 rounded-lg bg-white hover:border-neutral-400 transition-colors">
         {# Project Details #}
         <div class="p-4 flex flex-col gap-2 flex-1">
           <div class="flex items-start justify-between gap-3">
@@ -115,10 +102,10 @@ title: undefined.enterprises
                 {{ project.name }}
               </a>
             </h3>
-            <span class="px-2 py-1 text-xs font-medium rounded-md whitespace-nowrap flex-shrink-0
-              {% if project.status == 'launched' %}bg-green-100 text-green-800
-              {% elif project.status == 'pre-launch' %}bg-yellow-100 text-yellow-800
-              {% else %}bg-neutral-100 text-neutral-600{% endif %}">
+            <span class="px-2 py-1 text-xs font-medium rounded-md whitespace-nowrap flex-shrink-0 border
+              {% if project.status == 'launched' %}bg-green-100/45 border-green-100 text-green-800
+              {% elif project.status == 'pre-launch' %}bg-yellow-100/45 border-yellow-100 text-yellow-800
+              {% else %}bg-neutral-100/60 border-neutral-200 text-neutral-600{% endif %}">
               {{ project.status }}
             </span>
           </div>
