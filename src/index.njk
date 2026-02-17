@@ -3,184 +3,148 @@ layout: base.njk
 title: undefined.enterprises
 ---
 
-<div class="min-h-screen bg-white">
-  {# Header with Logo #}
-  <header class="px-4 sm:px-8 pt-4 mx-auto max-w-xl">
-    <div class="flex justify-start">
-      <a href="/" class="inline-block group">
-        <div class="flex items-center gap-2">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-800">
-            <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
-            <path d="M9 12L12 15L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0" class="group-hover:opacity-100 transition-opacity"/>
-          </svg>
-          <span class="font-serif text-base text-neutral-800 tracking-tight">undefined.enterprises</span>
-        </div>
-      </a>
-    </div>
+<div class="container">
+
+  <header>
+    <a href="/" class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+        <path d="M9 12L12 15L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-check"/>
+      </svg>
+      <span>undefined.enterprises</span>
+    </a>
   </header>
 
-  {# Hero Section #}
-  <section class="px-4 sm:px-8 pt-8 sm:pt-12 pb-8 sm:pb-12 mx-auto max-w-xl">
-    <h1 class="font-serif text-2xl tracking-tight leading-[1.2] text-neutral-800 pb-4">
-      Ship Fast. Distribute Faster.
-    </h1>
+  <div class="hero">
+    <h1>Ship Fast. Distribute Faster.</h1>
+  </div>
 
-    <div class="flex flex-col gap-4 text-base text-neutral-800 leading-normal">
-      <p>
-        The bottleneck isn't building anymore—it's <strong class="font-medium">distribution</strong>. AI collapsed creation costs 10-100x. Finding the people who need what you've made is now harder than building it.
-      </p>
+  <section>
+    <p>
+      <span class="newthought">The bottleneck isn't building anymore</span>—it's
+      distribution. AI collapsed creation costs 10–100×. Finding the people who need
+      what you've made is now harder than building it.
+    </p>
 
-      <p class="text-neutral-600">
-        <span class="font-serif text-lg font-normal text-neutral-800">undefined.enterprises</span> ships products with this in mind. Launch early, experiment with distribution, grow what works, discard what fails.
-      </p>
-    </div>
+    <p class="subdued">
+      <span style="font-size: 1.05em;">undefined.enterprises</span> ships products with this in mind.
+      Launch early, experiment with distribution, grow what works, discard what fails.
+    </p>
   </section>
 
-  {# Approach Section #}
-  <section class="px-4 sm:px-8 pt-8 sm:pt-12 pb-8 sm:pb-12 mx-auto max-w-xl border-t border-neutral-200">
-    <h2 class="font-serif text-lg text-neutral-800 leading-normal pb-4">Approach</h2>
+  <div class="section-break">· · ·</div>
 
-    <div class="flex flex-col gap-4 text-sm text-neutral-600 leading-normal">
-      <div>
-        <p class="font-medium text-neutral-800">Revenue or learning.</p>
-        <p>Every project either makes money or teaches something valuable.</p>
-      </div>
+  <section>
+    <h2>Approach</h2>
 
-      <div>
-        <p class="font-medium text-neutral-800">Kill fast.</p>
-        <p>Timing misses and market misreads go to the graveyard. Attachment kills momentum.</p>
-      </div>
+    <p>
+      <span class="newthought">Revenue or learning.</span>
+      Every project either makes money or teaches something valuable.
+    </p>
 
-      <div>
-        <p class="font-medium text-neutral-800">GTM you could run from the moon.</p>
-        <p>Channels that don't need IRL presence, long planning, or specific dates. AI-assisted outbound, short-form videos and programmatic SEO are the main go-to tactics. Events, sales calls, pure-play brand awaremess aren't even considered.</p>
-      </div>
-    </div>
+    <p>
+      <span class="newthought">Kill fast.</span>
+      Timing misses and market misreads go to the graveyard. Attachment kills momentum.
+    </p>
+
+    <p>
+      <span class="newthought">GTM you could run from the moon.</span>
+      Channels that don't need IRL presence, long planning, or specific dates.
+      AI-assisted outbound, short-form videos and programmatic SEO are the main go-to tactics.
+      Events, sales calls, pure-play brand awareness aren't even considered.
+    </p>
   </section>
 
-  {# Trends Section #}
-  <section class="px-4 sm:px-8 pt-8 sm:pt-12 pb-8 sm:pb-12 mx-auto max-w-xl border-t border-neutral-200">
-    <h2 class="font-serif text-lg text-neutral-800 leading-normal pb-4">Applied insights</h2>
+  <div class="section-break">· · ·</div>
 
-    <div class="flex flex-col gap-4 text-sm text-neutral-600 leading-normal">
-      <div>
-        <p class="font-medium text-neutral-800">The startup is a folder.</p>
-        <p>The entire company is represented as a directory hosted on git. Business logic, configuration, workflows—all readable and modifiable by agents. Infrastructure as code, but for everything.</p>
-      </div>
+  <section>
+    <h2>Applied Insights</h2>
 
-      <div>
-        <p class="font-medium text-neutral-800">Claude Code is the CMS.</p>
-        <p>Content management through agents and files instead of WordPress or headless platforms. Markdown beats admin panels when agents do the editing.</p>
-      </div>
+    <p>
+      <span class="newthought">The startup is a folder.</span>
+      The entire company is represented as a directory hosted on git. Business logic,
+      configuration, workflows—all readable and modifiable by agents. Infrastructure as code,
+      but for everything.
+    </p>
 
-      <div>
-        <p class="font-medium text-neutral-800">We shave the overhead.</p>
-        <p>Agents manage CSVs and scripts instead of paying for platforms. Direct API access to data providers replaces SEO tools, enrichment platforms, and CRMs. A skill.md instruction with a flat file beats most vertical SaaS for the basic use-cases.</p>
-      </div>
-    </div>
+    <p>
+      <span class="newthought">Claude Code is the CMS.</span>
+      Content management through agents and files instead of WordPress or headless platforms.
+      Markdown beats admin panels when agents do the editing.
+    </p>
+
+    <p>
+      <span class="newthought">We shave the overhead.</span>
+      Agents manage CSVs and scripts instead of paying for platforms. Direct API access to
+      data providers replaces SEO tools, enrichment platforms, and CRMs. A skill.md instruction
+      with a flat file beats most vertical SaaS for the basic use-cases.
+    </p>
   </section>
 
-  {# Portfolio Section #}
-  <section class="px-4 sm:px-8 pt-8 sm:pt-16 pb-12 sm:pb-24 mx-auto max-w-xl border-t border-neutral-200">
-    <div class="pb-6 sm:pb-8">
-      <h2 class="font-serif text-lg text-neutral-800 leading-normal">Portfolio</h2>
-    </div>
+  <div class="section-break">· · ·</div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <section>
+    <h2>Portfolio</h2>
+
+    <div class="project-grid">
       {% for project in projects %}
-      <article class="flex flex-col border border-neutral-200 rounded-lg overflow-hidden bg-white hover:border-neutral-400 transition-colors">
-        {# Project Image #}
+      <article class="project-card">
         {% if project.ogImage %}
-        <div class="aspect-[1.91/1] bg-neutral-100 overflow-hidden">
-          <img
-            src="{{ project.ogImage }}"
-            alt="{{ project.name }}"
-            class="w-full h-full object-cover grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
-            loading="lazy"
-            onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center text-neutral-300\'><svg class=\'w-12 h-12\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z\'/></svg></div>'"
-          >
+        <div class="project-image">
+          <img src="{{ project.ogImage }}" alt="{{ project.name }}" loading="lazy" onerror="this.parentElement.style.display='none'">
         </div>
         {% endif %}
-
-        {# Project Details #}
-        <div class="p-4 flex flex-col gap-2 flex-1">
-          <div class="flex items-start justify-between gap-3">
-            <h3 class="font-medium text-base text-neutral-800">
-              <a
-                href="{{ project.url }}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hover:text-blue-500 transition-colors underline decoration-transparent hover:decoration-current"
-              >
-                {{ project.name }}
-              </a>
-            </h3>
-            <span class="px-2 py-1 text-xs font-medium rounded-md whitespace-nowrap flex-shrink-0
-              {% if project.status == 'launched' %}bg-green-100 text-green-800
-              {% elif project.status == 'pre-launch' %}bg-yellow-100 text-yellow-800
-              {% else %}bg-neutral-100 text-neutral-600{% endif %}">
-              {{ project.status }}
-            </span>
+        <div class="project-body">
+          <div class="project-header">
+            <span class="project-name"><a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.name }}</a></span>
+            <span class="project-meta sans">{{ project.date | formatDate }}</span>
           </div>
-
-          <p class="text-xs text-neutral-500">{{ project.date | formatDate }}</p>
-
-          <p class="text-sm text-neutral-600 leading-normal flex-1">{{ project.blurb }}</p>
+          <div class="project-desc">{{ project.blurb }}</div>
+          {% if project.status == 'graveyard' %}
+          <div class="project-aside">Graveyard — timing or market miss.</div>
+          {% endif %}
         </div>
       </article>
       {% endfor %}
     </div>
   </section>
 
-  {# Velocity Section #}
-  <section class="px-4 sm:px-8 pt-8 sm:pt-12 pb-8 sm:pb-12 mx-auto max-w-xl border-t border-neutral-200">
-    <h2 class="font-serif text-lg text-neutral-800 leading-normal pb-4">Velocity</h2>
+  <div class="section-break">· · ·</div>
 
-    <div class="grid grid-cols-2 gap-6">
+  <section>
+    <h2>Velocity</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.2em;">
       <div>
-        <div class="font-serif text-2xl text-neutral-800 leading-tight">12</div>
-        <div class="text-sm text-neutral-600 pt-1">Projects delivered</div>
+        <div class="stat-value">12</div>
+        <div class="stat-label">Projects delivered</div>
       </div>
-
       <div>
-        <div class="font-serif text-2xl text-neutral-800 leading-tight">78</div>
-        <div class="text-sm text-neutral-600 pt-1">Days shipping</div>
+        <div class="stat-value">78</div>
+        <div class="stat-label">Days shipping</div>
       </div>
-
       <div>
-        <div class="font-serif text-2xl text-neutral-800 leading-tight">500k+</div>
-        <div class="text-sm text-neutral-600 pt-1">Users reached</div>
+        <div class="stat-value">500k+</div>
+        <div class="stat-label">Users reached</div>
       </div>
-
       <div>
-        <div class="font-serif text-2xl text-neutral-800 leading-tight">2</div>
-        <div class="text-sm text-neutral-600 pt-1">Revenue positive</div>
+        <div class="stat-value">2</div>
+        <div class="stat-label">Revenue positive</div>
       </div>
     </div>
   </section>
 
-  {# Contact Section #}
-  <section class="px-4 sm:px-8 pt-8 sm:pt-12 pb-8 sm:pb-12 mx-auto max-w-xl border-t border-neutral-200">
-    <h2 class="font-serif text-lg text-neutral-800 leading-normal pb-4">Contact</h2>
+  <div class="section-break">· · ·</div>
 
-    <div class="text-sm text-neutral-600 leading-normal">
-      <p class="pb-2">Need help shipping or optimizing distribution?</p>
-      <p>
-          Get in touch •
-        <a href="https://alen.ro/" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-700 transition-colors underline">
-            alen.ro
-        </a>
-
-      </p>
-    </div>
+  <section>
+    <p>
+      <span class="newthought">Get in touch</span> •
+      <a href="https://alen.ro/" target="_blank" rel="noopener noreferrer">alen.ro</a>
+    </p>
   </section>
 
-  {# Footer #}
-  <footer class="px-4 sm:px-8 py-8 mx-auto max-w-xl border-t border-neutral-200">
-    <div class="flex items-center gap-3 flex-wrap text-xs text-neutral-600">
-      <div>&copy; 2026 undefined.enterprises</div>
-
-
-    </div>
+  <footer class="sans">
+    <span>&copy; 2026 undefined.enterprises</span>
   </footer>
+
 </div>

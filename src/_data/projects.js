@@ -6,7 +6,7 @@ export default [
     blurb:
       "WooCommerce analytics plugin. Store owners query their data in natural language instead of building dashboard reports.",
     url: "https://askanalytics.io",
-    ogImage: "https://askanalytics.io/og-image.png",
+    ogImage: "https://www.askanalytics.io/assets/images/og-image.png",
   },
   {
     name: "Clear for Slack",
