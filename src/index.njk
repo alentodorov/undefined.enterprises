@@ -86,27 +86,24 @@ title: undefined.enterprises
   <section>
     <h2>Portfolio</h2>
 
-    <div class="project-grid">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {% for project in projects %}
-      <article class="project-card">
-        {% if project.ogImage %}
-        <div class="project-image">
-          <img src="{{ project.ogImage }}" alt="{{ project.name }}" loading="lazy" onerror="this.parentElement.style.display='none'">
-        </div>
-        {% endif %}
-        <div class="project-body">
-          <div class="project-header">
-            <span class="project-name"><a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.name }}</a></span>
-            <span class="project-meta sans">{{ project.date | formatDate }}</span>
+      <article class="flex flex-col border border-[#e0dcd5] rounded-sm overflow-hidden hover:border-[#a09c95] transition-colors">
+        <div class="flex flex-col flex-1 p-4">
+          <div class="flex items-baseline flex-wrap gap-1 mb-1">
+            <span class="text-[0.95rem] leading-snug"><a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.name }}</a></span>
+            <span class="sans text-[0.6rem] text-[#a09c95] tracking-tight">{{ project.date | formatDate }}</span>
           </div>
-          <div class="project-desc">{{ project.blurb }}</div>
+          <div class="text-[0.8rem] text-[#5a5650] leading-normal mb-3">{{ project.blurb }}</div>
+          <span class="sans mt-auto self-start text-[0.6rem] tracking-tight text-[#9C9890] border border-[#e0dcd5] px-1.5 py-0.5 rounded-sm no-underline">{{ project.status }}</span>
           {% if project.status == 'graveyard' %}
-          <div class="project-aside">Graveyard — timing or market miss.</div>
+          <div class="text-[0.72rem] text-[#9C9890] italic mt-1">Graveyard — timing or market miss.</div>
           {% endif %}
         </div>
       </article>
       {% endfor %}
     </div>
+    <div id="world-map" style="margin-top: 1.5rem;"></div>
   </section>
 
   <div class="section-break">· · ·</div>
@@ -148,3 +145,154 @@ title: undefined.enterprises
   </footer>
 
 </div>
+
+<script>
+(function() {
+  // World map as geographic scanlines: [latitude, [lng_start, lng_end], ...]
+  // Equirectangular projection from real coordinates
+  const scanlines = [
+    [74, [-68,-42],[52,58]],
+    [71, [-168,-160],[-140,-62],[-58,-20],[15,28],[40,50],[52,180]],
+    [68, [-168,-157],[-145,-58],[-55,-22],[-22,-14],[8,30],[32,180]],
+    [65, [-167,-150],[-140,-55],[-52,-28],[-24,-14],[5,30],[30,180]],
+    [62, [-165,-148],[-140,-53],[-50,-32],[5,28],[28,180]],
+    [59, [-162,-148],[-138,-52],[-8,0],[3,26],[28,180]],
+    [56, [-158,-148],[-135,-52],[-10,0],[2,28],[30,180]],
+    [53, [-134,-52],[-10,2],[0,32],[34,145],[156,164]],
+    [50, [-130,-52],[-8,0],[-2,38],[40,140],[156,162]],
+    [47, [-125,-66],[-5,40],[42,138],[156,162]],
+    [44, [-124,-68],[-9,30],[32,88],[92,135],[130,146]],
+    [41, [-124,-72],[-9,28],[30,65],[68,82],[86,125],[128,142]],
+    [38, [-122,-75],[-8,12],[14,36],[35,60],[62,72],[76,122],[126,142]],
+    [35, [-120,-76],[-6,12],[15,36],[35,58],[62,72],[78,120],[128,140]],
+    [32, [-117,-80],[-2,25],[28,55],[62,72],[74,90],[96,122]],
+    [29, [-114,-82],[-14,36],[36,56],[66,92],[96,120]],
+    [26, [-112,-97],[-85,-80],[-16,38],[38,58],[68,92],[96,108],[110,118]],
+    [23, [-110,-96],[-16,42],[42,60],[70,90],[96,108],[110,116]],
+    [20, [-106,-96],[-84,-76],[-17,44],[44,58],[72,88],[98,108]],
+    [17, [-100,-86],[-76,-70],[-17,16],[18,50],[74,86],[98,108]],
+    [14, [-92,-84],[-72,-62],[-17,16],[18,50],[76,84],[98,108],[118,126]],
+    [11, [-86,-80],[-72,-60],[-16,14],[16,50],[78,82],[100,108],[120,126]],
+    [8, [-82,-76],[-72,-58],[-15,10],[12,48],[100,106],[108,118],[120,126]],
+    [5, [-80,-76],[-74,-48],[-8,8],[10,42],[100,106],[108,120]],
+    [2, [-80,-76],[-72,-44],[0,34],[100,106],[108,118]],
+    [-1, [-80,-78],[-76,-44],[2,32],[98,106],[108,118],[138,148]],
+    [-4, [-78,-76],[-72,-35],[10,32],[36,42],[100,106],[108,116],[140,148]],
+    [-7, [-76,-74],[-68,-34],[12,40],[106,115],[122,130],[140,148]],
+    [-10, [-66,-34],[12,42],[106,114],[124,128],[140,148]],
+    [-13, [-62,-35],[12,42],[44,50],[125,148]],
+    [-16, [-58,-35],[12,40],[44,50],[126,150]],
+    [-19, [-55,-38],[14,38],[34,40],[44,48],[118,153]],
+    [-22, [-52,-40],[14,36],[33,38],[115,154]],
+    [-25, [-58,-42],[16,35],[114,154]],
+    [-28, [-58,-48],[18,34],[115,153]],
+    [-31, [-70,-56],[18,32],[116,152]],
+    [-34, [-72,-58],[18,30],[118,150],[172,178]],
+    [-37, [-74,-64],[20,28],[120,148],[172,178]],
+    [-40, [-74,-66],[144,148],[170,178]],
+    [-43, [-76,-70],[168,176]],
+    [-46, [-76,-72],[168,174]],
+    [-49, [-74,-68]],
+    [-52, [-72,-68]],
+  ];
+
+  const COLS = 110;
+  const ROWS = 55;
+  const LAT_TOP = 78;
+  const LAT_BOT = -56;
+  const LNG_LEFT = -180;
+  const LNG_RIGHT = 180;
+  const SP = 1.6;
+  const R = 0.42;
+
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', `0 0 ${COLS * SP} ${ROWS * SP}`);
+  svg.setAttribute('xmlns', ns);
+
+  // Build lookup: for each grid row, which columns are land?
+  function isLand(lat, lng) {
+    // Find nearest scanline
+    let best = null, bestDist = 999;
+    for (const sl of scanlines) {
+      const d = Math.abs(sl[0] - lat);
+      if (d < bestDist) { bestDist = d; best = sl; }
+    }
+    if (!best || bestDist > 4) return false;
+    for (let i = 1; i < best.length; i++) {
+      if (lng >= best[i][0] && lng <= best[i][1]) return true;
+    }
+    return false;
+  }
+
+  const landDots = [];
+
+  for (let row = 0; row < ROWS; row++) {
+    const lat = LAT_TOP - (row / (ROWS - 1)) * (LAT_TOP - LAT_BOT);
+    for (let col = 0; col < COLS; col++) {
+      const lng = LNG_LEFT + (col / (COLS - 1)) * (LNG_RIGHT - LNG_LEFT);
+      if (isLand(lat, lng)) {
+        const cx = col * SP + SP / 2;
+        const cy = row * SP + SP / 2;
+        const circle = document.createElementNS(ns, 'circle');
+        circle.setAttribute('cx', cx);
+        circle.setAttribute('cy', cy);
+        circle.setAttribute('r', R);
+        circle.setAttribute('class', 'map-dot');
+        svg.appendChild(circle);
+        landDots.push({ cx, cy, lat, lng, el: circle });
+      }
+    }
+  }
+
+  document.getElementById('world-map').appendChild(svg);
+
+  // Region filters: [latMin, latMax, lngMin, lngMax]
+  const US = [25, 50, -130, -65];
+  const EUROPE = [35, 62, -10, 40];
+  const RUSSIA = [45, 75, 30, 180];
+  const ROMANIA = [43, 49, 22, 30];
+
+  const projects = [
+    { name: 'WalletWallet', regions: [US, EUROPE, RUSSIA] },
+    { name: 'Ajunge', regions: [ROMANIA] },
+    { name: 'Ask Analytics', regions: [US, EUROPE] },
+    { name: 'Clear for Slack', regions: [US, EUROPE] },
+    { name: 'Papertrail', regions: [EUROPE] },
+    { name: 'ClickRemix', regions: [US, EUROPE] },
+  ];
+
+  function dotsInRegions(regions) {
+    return landDots.filter(d =>
+      regions.some(([latMin, latMax, lngMin, lngMax]) =>
+        d.lat >= latMin && d.lat <= latMax && d.lng >= lngMin && d.lng <= lngMax
+      )
+    );
+  }
+
+  function pingDot() {
+    const proj = projects[Math.floor(Math.random() * projects.length)];
+    const candidates = dotsInRegions(proj.regions);
+    if (!candidates.length) return;
+    const dot = candidates[Math.floor(Math.random() * candidates.length)];
+
+    dot.el.setAttribute('class', 'map-dot lit');
+    setTimeout(() => dot.el.setAttribute('class', 'map-dot'), 2500);
+
+    const label = document.createElementNS(ns, 'text');
+    label.setAttribute('x', dot.cx + 2);
+    label.setAttribute('y', dot.cy + 0.8);
+    label.setAttribute('class', 'map-label active');
+    label.textContent = proj.name;
+    svg.appendChild(label);
+    setTimeout(() => label.remove(), 2600);
+  }
+
+  function scheduleNext() {
+    const delay = 2500 + Math.random() * 3000;
+    setTimeout(() => { pingDot(); scheduleNext(); }, delay);
+  }
+  scheduleNext();
+  setTimeout(scheduleNext, 1500);
+})();
+</script>
