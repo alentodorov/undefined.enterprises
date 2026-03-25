@@ -58,9 +58,17 @@ export default [
   {
     name: "StationWatch",
     date: "2026-02-01",
-    status: "graveyard",
+    status: "launched",
     blurb:
-      "UK fuel price tracker using government data. Launched 12 hours after competitor already dominated category. Timing problem.",
+      "UK fuel price tracker using government data. 16k pages indexed and ranking in less than 24 hours.",
     url: "https://stationwatch.co.uk",
+  },
+  {
+    name: "SEOData",
+    date: "2026-03-01",
+    status: "launched",
+    blurb:
+      "SEO data API that gives search volume, CPC, and competition metrics for keywords. Routes across multiple providers so AI agents can validate demand before building.",
+    url: "https://seodata.dev",
   },
 ];
